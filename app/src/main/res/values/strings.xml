@@ -1,5 +1,13 @@
 <resources>
-    <string name="app_name">aplikasi pertama</string>
+    <string name="app_name">aplikasipertama</string>
+    <string name="Agama">activity_relatif</string>
 
-    <item name="Islam"
-</item><item name="Kristen"</item></resources>
+    <string-array name="agama">
+        <item>Islam</item>
+        <item>Kristen</item>
+        <item>Katolik</item>
+        <item>Hindu</item>
+        <item>Budha</item>
+        <item>Konghuchu</item>
+    </string-array>
+</resources>

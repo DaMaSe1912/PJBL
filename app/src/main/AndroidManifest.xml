@@ -12,19 +12,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AplikasiPertama">
         <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NotaHasil"
+            android:exported="false" />
+        <activity
             android:name=".TempConvertActivity"
             android:exported="false" />
         <activity
             android:name=".FormMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".HasilActivity"
+            android:name=".HasilFormActivity"
             android:exported="false" />
         <activity
             android:name=".FormActivity"
             android:exported="false" />
+
         <activity
-            android:name=".CardActivity"
+            android:name=".ConstraintActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,15 +42,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ConstraintActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RelativeActivity2"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true" />
     </application>
 
 </manifest>

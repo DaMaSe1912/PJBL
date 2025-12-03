@@ -1,9 +1,8 @@
 package com.damay.aplikasipertama
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import androidx.appcompat.app.AlertDialog
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 
@@ -11,72 +10,69 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main) // Ganti dengan nama layout XML Anda
+        setContentView(R.layout.activity_main) // Assuming your layout file is named activity_main.xml
 
-        // Inisialisasi semua card view
-        val cardHome: CardView = findViewById(R.id.cardhome)
-        val cardHelpdesk: CardView = findViewById(R.id.cardhelpdesk)
-        val cardStaff: CardView = findViewById(R.id.cardstaff)
-        val cardGalery: CardView = findViewById(R.id.cardgalery)
-        val cardSurvey: CardView = findViewById(R.id.cardsurvey)
-        val cardExit: CardView = findViewById(R.id.cardexit)
+        // Initialize all CardViews
+        val cardForm = findViewById<CardView>(R.id.cardForm)
+        val cardProfile = findViewById<CardView>(R.id.cardProfile)
+        val cardMenu = findViewById<CardView>(R.id.cardMenu)
+        val cardTemp = findViewById<CardView>(R.id.cardTemp)
+        val cardCalc = findViewById<CardView>(R.id.cardCalc)
+        val cardExit = findViewById<CardView>(R.id.cardExit)
 
-        // Click listener untuk Home
-        cardHome.setOnClickListener {
-            // Contoh intent ke activity lain
-            val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
-        }
+        // Set click listeners for each CardView
+        setupListeners(cardForm, cardProfile, cardMenu, cardTemp, cardCalc, cardExit)
+    }
 
-        // Click listener untuk Helpdesk
-        cardHelpdesk.setOnClickListener {
-            // Contoh membuka nomor telepon
-            val intent = Intent(Intent.ACTION_DIAL)
-            intent.data = Uri.parse("tel:0123456789")
-            startActivity(intent)
-        }
-
-        // Click listener untuk Staff/Pegawai
-        cardStaff.setOnClickListener {
-            val intent = Intent(this, StaffActivity::class.java)
-            startActivity(intent)
-        }
-
-        // Click listener untuk Galeri
-        cardGalery.setOnClickListener {
-            val intent = Intent(this, GalleryActivity::class.java)
-            startActivity(intent)
-        }
-
-        // Click listener untuk Survey
-        cardSurvey.setOnClickListener {
+    private fun setupListeners(
+        cardForm: CardView,
+        cardProfile: CardView,
+        cardMenu: CardView,
+        cardTemp: CardView,
+        cardCalc: CardView,
+        cardExit: CardView
+    ) {
+        // FORM CARD - Navigate to FormMenuActivity
+        cardForm.setOnClickListener {
             val intent = Intent(this, FormActivity::class.java)
             startActivity(intent)
         }
 
-        // Click listener untuk Exit
-        cardExit.setOnClickListener {
-            showExitConfirmation()
+        // PROFILE CARD - Navigate to ProfileActivity
+        cardProfile.setOnClickListener {
+            // If you have a ProfileActivity, use this:
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
         }
-    }
 
-    // Fungsi untuk menampilkan dialog konfirmasi exit
-    private fun showExitConfirmation() {
-        AlertDialog.Builder(this)
-            .setTitle("Konfirmasi Keluar")
-            .setMessage("Apakah Anda yakin ingin keluar dari aplikasi?")
-            .setPositiveButton("Ya") { dialog, which ->
-                finishAffinity() // Keluar dari semua activity
-            }
-            .setNegativeButton("Tidak") { dialog, which ->
-                dialog.dismiss()
-            }
-            .setCancelable(true)
-            .show()
-    }
+        // MENU CARD - Navigate to MenuActivity
+        cardMenu.setOnClickListener {
+            // If you have a MenuActivity, use this:
+            val intent = Intent(this, FormMenuActivity::class.java)
+            startActivity(intent)
 
-    // Handle back button press
-    override fun onBackPressed() {
-        showExitConfirmation()
+        }
+
+        // TEMPERATURE CARD - Navigate to TemperatureActivity
+        cardTemp.setOnClickListener {
+            // If you have a TemperatureActivity, use this:
+            val intent = Intent(this, TempConvertActivity::class.java)
+            startActivity(intent)
+
+        }
+
+        // CALCULATOR CARD - Navigate to CalculatorActivity
+        cardCalc.setOnClickListener {
+            // If you have a CalculatorActivity, use this:
+            val intent = Intent(this, ConstraintActivity::class.java)
+            startActivity(intent)
+
+        }
+
+        // EXIT CARD - Close the app
+        cardExit.setOnClickListener {
+            Toast.makeText(this, "Keluar aplikasi", Toast.LENGTH_SHORT).show()
+            finishAffinity() // This closes all activities in the app
+        }
     }
 }
