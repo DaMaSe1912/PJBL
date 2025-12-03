@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+
+    <color name="black_white">#FF000000</color>
+
+    <color name="white_black">#FFFFFFFF</color>
+
+    <color name="coba">#FFFFFF</color>
+
+    <!-- Background dasar aplikasi -->
+    <color name="bg_main">#FBFBFB</color>
+
+    <!-- Warna card abu -->
+    <color name="card_gray">#EFEFEF</color>
+
+    <!-- Card Abu (lebih gelap) -->
+    <color name="card_heavy">#E7E7E7</color>
+
+    <!-- Warna card putih keabuan -->
+    <color name="card_light">#F6F6F6</color>
+
+    <!-- Warna text judul -->
+    <color name="title">#020202</color>
+
+    <!-- Warna teks umum -->
+    <color name="text_primary">#000000</color>
+
+    <!-- Warna Button Kirim -->
+    <color name="Button1">#838383</color>
 </resources>

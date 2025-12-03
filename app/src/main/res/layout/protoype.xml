@@ -95,8 +95,8 @@
                             android:id="@+id/etJumlahSoto"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="jumlah"
-                            android:textColor="#929292" />
+                            android:hint="jumlah"
+                            android:textColorHint="@color/text_primary" />
 
                     </LinearLayout>
 
@@ -161,8 +161,8 @@
                             android:id="@+id/etJumlahTimlo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="jumlah"
-                            android:textColor="#929292" />
+                            android:hint="jumlah"
+                            android:textColorHint="@color/text_primary" />
 
                     </LinearLayout>
 
@@ -220,7 +220,7 @@
                                 android:text="Teh"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
-                                android:textColor="#000000" />
+                                android:textColor="@color/text_primary" />
 
                             <RadioGroup
                                 android:layout_width="match_parent"
@@ -232,14 +232,14 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Es"
-                                    android:textColor="#202020"/>
+                                    android:textColor="@color/text_primary"/>
 
                                 <RadioButton
                                     android:id="@+id/rbTehhangat"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Hangat"
-                                    android:textColor="#202020"/>
+                                    android:textColor="@color/text_primary"/>
                             </RadioGroup>
 
                             <TextView
@@ -257,8 +257,8 @@
                             android:id="@+id/etJumlahTeh"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="jumlah"
-                            android:textColor="#929292" />
+                            android:hint="jumlah"
+                            android:textColorHint="@color/text_primary" />
 
                     </LinearLayout>
 
@@ -306,7 +306,7 @@
                                 android:text="Jeruk"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
-                                android:textColor="#000000" />
+                                android:textColor="@color/text_primary" />
 
                             <RadioGroup
                                 android:layout_width="match_parent"
@@ -318,14 +318,14 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Es"
-                                    android:textColor="#202020"/>
+                                    android:textColor="@color/text_primary"/>
 
                                 <RadioButton
                                     android:id="@+id/rbJerukhangat"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Hangat"
-                                    android:textColor="#202020"/>
+                                    android:textColor="@color/text_primary"/>
                             </RadioGroup>
 
                             <TextView
@@ -343,8 +343,8 @@
                             android:id="@+id/etJumlahJeruk"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="jumlah"
-                            android:textColor="#929292" />
+                            android:hint="jumlah"
+                            android:textColorHint="@color/text_primary" />
 
                     </LinearLayout>
 

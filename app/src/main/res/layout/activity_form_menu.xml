@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_main"
     tools:context=".FormMenuActivity">
 
     <!-- Scroll Content -->
@@ -13,7 +14,7 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/btnPesan"
         android:padding="16dp"
-        android:background="#F8F8F8">
+        android:background="@color/bg_main">
 
         <!-- Your existing LinearLayout ↓↓↓ -->
         <LinearLayout
@@ -27,7 +28,7 @@
                 android:text="Form Menu"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:textColor="#000000"
+                android:textColor="@color/title"
                 android:gravity="center"
                 android:layout_marginBottom="5dp" />
 
@@ -52,7 +53,7 @@
                     android:id="@+id/etNamaCustomer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="#202020"
+                    android:textColor="@color/text_primary"
                     android:inputType="textPersonName" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -63,7 +64,7 @@
                 android:text="Makanan"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="#000000"
+                android:textColor="@color/text_primary"
                 android:layout_marginBottom="7dp" />
 
             <!-- Food Item 1 -->
@@ -104,7 +105,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Soto"
-                                android:textColor="#000000"
+                                android:textColor="@color/text_primary"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -114,7 +115,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="4dp"
                                 android:text="Rp 15.000,00"
-                                android:textColor="#FF0000"
+                                android:textColor="@color/text_primary"
                                 android:textSize="14sp" />
 
                         </LinearLayout>
@@ -123,8 +124,9 @@
                             android:id="@+id/etJumlahSoto"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="jumlah"
-                            android:textColor="#929292" />
+                            android:hint="jumlah"
+                            android:textColorHint="@color/text_primary"
+                            android:inputType="number"/>
 
                     </LinearLayout>
 
@@ -172,7 +174,7 @@
                                 android:text="Timlo"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
-                                android:textColor="#000000" />
+                                android:textColor="@color/text_primary" />
 
                             <TextView
                                 android:id="@+id/tvTimloHarga"
@@ -180,7 +182,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Rp 10.000,00"
                                 android:textSize="14sp"
-                                android:textColor="#FF0000"
+                                android:textColor="@color/text_primary"
                                 android:layout_marginTop="4dp" />
 
                         </LinearLayout>
@@ -189,8 +191,9 @@
                             android:id="@+id/etJumlahTimlo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="jumlah"
-                            android:textColor="#929292" />
+                            android:hint="jumlah"
+                            android:textColorHint="@color/text_primary"
+                            android:inputType="number"/>
 
                     </LinearLayout>
 
@@ -205,7 +208,7 @@
                 android:text="Minuman"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="#000000"
+                android:textColor="@color/text_primary"
                 android:layout_marginBottom="8dp" />
 
             <!-- Drink Item 1 -->
@@ -248,7 +251,7 @@
                                 android:text="Teh"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
-                                android:textColor="#000000" />
+                                android:textColor="@color/text_primary" />
 
                             <RadioGroup
                                 android:id="@+id/rgTeh"
@@ -261,14 +264,14 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Es"
-                                    android:textColor="#202020"/>
+                                    android:textColor="@color/text_primary"/>
 
                                 <RadioButton
                                     android:id="@+id/rbTehhangat"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Hangat"
-                                    android:textColor="#202020"/>
+                                    android:textColor="@color/text_primary"/>
                             </RadioGroup>
 
                             <TextView
@@ -277,7 +280,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Rp 5.000,00"
                                 android:textSize="14sp"
-                                android:textColor="#FF0000"
+                                android:textColor="@color/text_primary"
                                 android:layout_marginTop="4dp" />
 
                         </LinearLayout>
@@ -286,8 +289,9 @@
                             android:id="@+id/etJumlahTeh"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="jumlah"
-                            android:textColor="#929292" />
+                            android:hint="jumlah"
+                            android:textColorHint="@color/text_primary"
+                            android:inputType="number"/>
 
                     </LinearLayout>
 
@@ -335,7 +339,7 @@
                                 android:text="Jeruk"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
-                                android:textColor="#000000" />
+                                android:textColor="@color/text_primary" />
 
                             <RadioGroup
                                 android:id="@+id/rgJeruk"
@@ -348,14 +352,14 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Es"
-                                    android:textColor="#202020"/>
+                                    android:textColor="@color/text_primary"/>
 
                                 <RadioButton
                                     android:id="@+id/rbJerukhangat"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Hangat"
-                                    android:textColor="#202020"/>
+                                    android:textColor="@color/text_primary"/>
                             </RadioGroup>
 
                             <TextView
@@ -364,7 +368,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Rp 7.000,00"
                                 android:textSize="14sp"
-                                android:textColor="#FF0000"
+                                android:textColor="@color/text_primary"
                                 android:layout_marginTop="4dp" />
 
                         </LinearLayout>
@@ -373,8 +377,9 @@
                             android:id="@+id/etJumlahJeruk"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="jumlah"
-                            android:textColor="#929292" />
+                            android:hint="jumlah"
+                            android:textColorHint="@color/text_primary"
+                            android:inputType="number"/>
 
                     </LinearLayout>
 
@@ -394,9 +399,10 @@
         android:layout_height="wrap_content"
         android:text="Pesan Sekarang"
         android:textSize="20sp"
+        android:textColor="@color/black_white"
         android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="10dp"
         android:layout_marginVertical="10dp"
-        android:backgroundTint="#3C3C3C"/>
+        android:backgroundTint="@color/Button1"/>
 
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.damay.aplikasipertama
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -18,7 +19,6 @@ class HasilFormActivity : AppCompatActivity() {
     private lateinit var tvkelamin: TextView
     private lateinit var tvagama: TextView
     private lateinit var tvhobi: TextView
-    private lateinit var btnKembali: Button
 
 
 
@@ -59,16 +59,5 @@ class HasilFormActivity : AppCompatActivity() {
         tvkelamin.text = kelamin
         tvagama.text = agama
         tvhobi.text = hobi
-    }
-    private fun setupButton() {
-        btnKembali.setOnClickListener {
-            // Method 1: Simply finish this activity to go back
-            finish()
-
-            // Method 2: If you want to navigate back explicitly
-            // val intent = Intent(this, FormActivity::class.java)
-            // startActivity(intent)
-            // finish() // Optional: remove current activity from stack
-        }
     }
 }
