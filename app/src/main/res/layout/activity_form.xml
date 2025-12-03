@@ -1,166 +1,245 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/mainScroll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".FormActivity">
 
-    <TextView
-        android:id="@+id/JudulForm"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:textAlignment="center"
-        android:text="Form"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"/>
+        android:paddingHorizontal="20dp"
+        android:paddingTop="20dp">
 
-    <EditText
-        android:id="@+id/etNama"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:textSize="20sp"
-        android:inputType="textPersonName"
-        android:layout_below="@+id/JudulForm"
-        android:layout_marginHorizontal="10dp"
-        android:hint="Masukkan Nama Lengkap" />
-
-    <EditText
-        android:id="@+id/etNomor"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:textSize="20sp"
-        android:inputType="phone"
-        android:layout_marginHorizontal="10dp"
-        android:layout_below="@id/etNama"
-        android:hint="Masukkan Nomor Handphone" />
-    
-    <EditText
-        android:id="@+id/etUsia"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:textSize="20sp"
-        android:inputType="phone"
-        android:layout_marginHorizontal="10dp"
-        android:layout_below="@+id/etNomor"
-        android:hint="Masukan Usia"/>
-
-    <TextView
-        android:id="@+id/tvAgama"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etUsia"
-        android:layout_marginTop="10dp"
-        android:text="Agama"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        android:layout_marginVertical="10dp"
-        android:layout_margin="10dp"/>
-
-    <Spinner
-        android:id="@+id/SpinnerAgama"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:spinnerMode="dropdown"
-        android:layout_below="@+id/tvAgama"
-        />
-
-    <TextView
-        android:id="@+id/tvKelamin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Jenis Kelamin"
-        android:textStyle="bold"
-        android:textSize="25dp"
-        android:layout_below="@+id/SpinnerAgama"
-        android:layout_marginVertical="10dp"
-        android:layout_margin="10dp"/>
-
-    <RadioGroup
-        android:id="@+id/rgKelamin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvKelamin"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/rbLaki"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Laki-Laki"
-            android:textSize="18dp"/>
-
-        <RadioButton
-            android:id="@+id/rbPerempuan"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Perempuan"
-            android:textSize="18dp"/>
-    </RadioGroup>
-
-    <LinearLayout
-        android:id="@+id/linearlayHobi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@+id/rgKelamin"
-        android:layout_marginVertical="10dp">
 
         <TextView
-            android:id="@+id/tvHobi"
+            android:id="@+id/tvJudul"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="25dp"
-            android:text="Hobi"
+            android:textAlignment="center"
+            android:textSize="32sp"
             android:textStyle="bold"
+            android:textColor="#202020"
+            android:text="Form Pendaftaran"
+            android:layout_marginTop="10dp" />
+
+        <!-- EditText Nama -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutNama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvJudul"
+            android:layout_marginTop="16dp"
+            android:hint="Nama Lengkap"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxStrokeWidth="1.5dp"
+            app:boxStrokeWidthFocused="2dp"
+            app:boxStrokeColor="#1E0FBA"
+            app:boxStrokeErrorColor="#FB0000">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#202020"
+                android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- EditText Nomor -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutNomor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layoutNama"
             android:layout_marginTop="10dp"
-            android:layout_margin="10dp"/>
+            android:hint="Nomor Handphone"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxStrokeWidth="1.5dp"
+            app:boxStrokeWidthFocused="2dp"
+            app:boxStrokeColor="#1E0FBA"
+            app:boxStrokeErrorColor="#FB0000">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNomor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#202020"
+                android:inputType="phone" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- EditText Alamat -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutAlamat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layoutNomor"
+            android:layout_marginTop="10dp"
+            android:hint="Alamat Lengkap"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxStrokeWidth="1.5dp"
+            app:boxStrokeWidthFocused="2dp"
+            app:boxStrokeColor="#1E0FBA"
+            app:boxStrokeErrorColor="#FB0000">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etAlamat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#202020"
+                android:inputType="textPostalAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Agama -->
+        <TextView
+            android:id="@+id/tvAgama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Agama"
+            android:textColor="#202020"
+            android:textSize="15sp"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/layoutAlamat" />
+
+        <Spinner
+            android:id="@+id/spAgama"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/tvAgama"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="10dp"
+            android:popupBackground="#FFFFFF"
+            android:spinnerMode="dropdown"
+            android:paddingHorizontal="12dp"
+            android:textAlignment="center"
+            android:entries="@array/agama"/>
+
+        <!-- Jenis Kelamin -->
+        <TextView
+            android:id="@+id/tvKelamin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jenis Kelamin"
+            android:textColor="#202020"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_below="@id/spAgama"
+            android:layout_margin="10dp" />
+
+        <RadioGroup
+            android:id="@+id/rgKelamin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvKelamin"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbLaki"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Laki-Laki"
+                android:textColor="#202020"
+                android:padding="10dp"
+                android:layout_marginEnd="20dp" />
+
+            <RadioButton
+                android:id="@+id/rbPerempuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Perempuan"
+                android:textColor="#202020"
+                android:padding="10dp" />
+        </RadioGroup>
+
+        <!-- Hobi -->
+        <TextView
+            android:id="@+id/tvHobi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hobi"
+            android:textColor="#020202"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_below="@id/rgKelamin"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp" />
 
         <CheckBox
             android:id="@+id/cbMembaca"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAlignment="center"
             android:text="Membaca"
-            android:textSize="18dp"/>
-        
+            android:textColor="#020202"
+            android:padding="10dp"
+            android:layout_below="@id/tvHobi"
+            android:layout_marginStart="10dp" />
+
+        <CheckBox
+            android:id="@+id/cbMakan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Makan"
+            android:textColor="#020202"
+            android:padding="10dp"
+            android:layout_below="@id/cbMembaca"
+            android:layout_marginStart="10dp" />
+
+        <CheckBox
+            android:id="@+id/cbTidur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Tidur"
+            android:textColor="#020202"
+            android:padding="10dp"
+            android:layout_below="@id/cbMakan"
+            android:layout_marginStart="10dp" />
+
         <CheckBox
             android:id="@+id/cbOlahraga"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAlignment="center"
             android:text="Olahraga"
-            android:textSize="18dp"/>
+            android:textColor="#020202"
 
-        <CheckBox
-            android:id="@+id/cbMemasak"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Memasak"
-            android:textSize="18dp"/>
+            android:padding="10dp"
+            android:layout_below="@id/cbTidur"
+            android:layout_marginStart="10dp" />
 
-        <CheckBox
-            android:id="@+id/cbTravelling"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Travelling"
-            android:textSize="18dp" />
-
-    </LinearLayout>
+        <!-- Tombol Simpan -->
         <Button
-            android:id="@+id/btnKirim"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.8"
-            android:text="Kirim"
-            android:textSize="20sp"
-            android:paddingVertical="12dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:layout_margin="10dp"
-            android:backgroundTint="@color/black"/>
-</RelativeLayout>
+            android:id="@+id/btnSimpan"
+            android:layout_width="200dp"
+            android:layout_height="48dp"
+            android:layout_centerHorizontal="true"
+            android:text="Submit"
+            android:backgroundTint="#373737"
+            android:layout_below="@+id/cbOlahraga"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+</ScrollView>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".NotaHasil">
+
+    <!-- Kartu utama -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardNota"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@color/cardview_light_background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:gravity="center_horizontal">
+
+            <!-- Judul -->
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NOTA TRANSAKSI"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#020202"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Nama Warung -->
+            <TextView
+                android:id="@+id/tvWarung"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Warung Yono"
+                android:textSize="18sp"
+                android:textColor="#020202"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Nama Customer -->
+            <TextView
+                android:id="@+id/tvCustomer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama: -"
+                android:textColor="#020202"
+                android:textSize="16sp"
+                android:layout_marginBottom="16dp"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+
+                <!-- Header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tvHeaderItem"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Item"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="#020202"/>
+
+                    <TextView
+                        android:id="@+id/tvHeaderJml"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.5"
+                        android:layout_height="wrap_content"
+                        android:text="Jml"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:textColor="#020202"/>
+
+                    <TextView
+                        android:id="@+id/tvHeaderSubtotal"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Subtotal"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:gravity="end"
+                        android:textColor="#020202"/>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Baris item -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="6dp"
+                android:paddingHorizontal="10dp">
+
+                <TextView
+                    android:id="@+id/tvItem1"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="#020202"/>
+
+                <TextView
+                    android:id="@+id/tvjml1"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.5"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:textColor="#020202"/>
+
+                <TextView
+                    android:id="@+id/tvSubTotal"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:gravity="end"
+                    android:textColor="#020202"/>
+            </LinearLayout>
+
+            <!-- Garis pembatas -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#FFFFFF"
+                android:layout_marginVertical="12dp"/>
+
+            <!-- Total -->
+            <TextView
+                android:id="@+id/tvTotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total: Rp 30.000"
+                android:textAlignment="textEnd"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="#020202"
+                android:paddingEnd="10dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

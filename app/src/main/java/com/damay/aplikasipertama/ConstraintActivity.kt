@@ -42,7 +42,7 @@ class ConstraintActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         // Step 3.3: Set the layout
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_constraint)
 
         // Step 3.4: Initialize all views
         initializeViews()

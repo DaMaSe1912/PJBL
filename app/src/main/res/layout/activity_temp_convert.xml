@@ -36,6 +36,7 @@
             android:layout_margin="10dp">
 
             <EditText
+                android:id="@+id/etInput"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
@@ -43,6 +44,7 @@
                 android:textSize="25sp" />
 
             <Spinner
+                android:id="@+id/spinnerSuhuInput"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="0.5"
@@ -57,7 +59,8 @@
         android:text="="
         android:textSize="50sp"
         android:layout_below="@+id/cvInput"
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        android:gravity="center"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -77,6 +80,7 @@
             android:layout_margin="10dp">
 
             <EditText
+                android:id="@+id/etOutput"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
@@ -84,6 +88,7 @@
                 android:textSize="25sp"/>
 
             <Spinner
+                android:id="@+id/spinnerSuhuOutput"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="0.5"
@@ -92,6 +97,7 @@
     </androidx.cardview.widget.CardView>
 
     <Button
+        android:id="@+id/btnConvert"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

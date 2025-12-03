@@ -7,261 +7,396 @@
     android:layout_height="match_parent"
     tools:context=".FormMenuActivity">
 
-    <TextView
-        android:id="@+id/tvJudul"
+    <!-- Scroll Content -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Form Menu"
-        android:textSize="35sp"
-        android:textAlignment="center"
-        android:layout_marginTop="10dp"
-        android:textStyle="bold"/>
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btnPesan"
+        android:padding="16dp"
+        android:background="#F8F8F8">
 
-    <!-- menu Makanan -->
-    <TextView
-        android:id="@+id/tvMakanan"
+        <!-- Your existing LinearLayout ↓↓↓ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Form Menu"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:gravity="center"
+                android:layout_marginBottom="5dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutNama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvJudul"
+                android:layout_marginTop="8dp"
+                android:hint="Nama Customer"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxStrokeWidth="1.5dp"
+                app:boxStrokeWidthFocused="2dp"
+                app:boxStrokeColor="#1E0FBA"
+                app:boxStrokeErrorColor="#FB0000">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNamaCustomer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#202020"
+                    android:inputType="textPersonName" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Food Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Makanan"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:layout_marginBottom="7dp" />
+
+            <!-- Food Item 1 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/soto"/>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginHorizontal="5dp">
+
+                            <TextView
+                                android:id="@+id/tvSoto"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Soto"
+                                android:textColor="#000000"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvSotoHarga"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="Rp 15.000,00"
+                                android:textColor="#FF0000"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/etJumlahSoto"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="jumlah"
+                            android:textColor="#929292" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Food Item 2 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/timlo"/>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_weight="1"
+                            android:layout_marginHorizontal="5dp">
+
+                            <TextView
+                                android:id="@+id/tvTimlo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Timlo"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="#000000" />
+
+                            <TextView
+                                android:id="@+id/tvTimloHarga"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Rp 10.000,00"
+                                android:textSize="14sp"
+                                android:textColor="#FF0000"
+                                android:layout_marginTop="4dp" />
+
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/etJumlahTimlo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="jumlah"
+                            android:textColor="#929292" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Drink Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Minuman"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Drink Item 1 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/teh"/>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_weight="1"
+                            android:layout_marginHorizontal="5dp">
+
+                            <TextView
+                                android:id="@+id/tvTeh"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Teh"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="#000000" />
+
+                            <RadioGroup
+                                android:id="@+id/rgTeh"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:id="@+id/rbEsteh"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Es"
+                                    android:textColor="#202020"/>
+
+                                <RadioButton
+                                    android:id="@+id/rbTehhangat"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Hangat"
+                                    android:textColor="#202020"/>
+                            </RadioGroup>
+
+                            <TextView
+                                android:id="@+id/tvTehHarga"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Rp 5.000,00"
+                                android:textSize="14sp"
+                                android:textColor="#FF0000"
+                                android:layout_marginTop="4dp" />
+
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/etJumlahTeh"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="jumlah"
+                            android:textColor="#929292" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Drink Item 2 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/jeruk"/>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_weight="1"
+                            android:layout_marginHorizontal="5dp">
+
+                            <TextView
+                                android:id="@+id/tvJeruk"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Jeruk"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="#000000" />
+
+                            <RadioGroup
+                                android:id="@+id/rgJeruk"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:id="@+id/rbEsjeruk"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Es"
+                                    android:textColor="#202020"/>
+
+                                <RadioButton
+                                    android:id="@+id/rbJerukhangat"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Hangat"
+                                    android:textColor="#202020"/>
+                            </RadioGroup>
+
+                            <TextView
+                                android:id="@+id/tvJerukHarga"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Rp 7.000,00"
+                                android:textSize="14sp"
+                                android:textColor="#FF0000"
+                                android:layout_marginTop="4dp" />
+
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/etJumlahJeruk"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="jumlah"
+                            android:textColor="#929292" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+        <!-- End Your Content -->
+
+    </ScrollView>
+
+    <!-- Sticky Bottom Button -->
+    <Button
+        android:id="@+id/btnPesan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Makanan"
-        android:textSize="25sp"
-        android:textStyle="bold"
+        android:text="Pesan Sekarang"
+        android:textSize="20sp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="10dp"
         android:layout_marginVertical="10dp"
-        android:layout_marginHorizontal="15dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/tvJudul"/>
-
-    <LinearLayout
-        android:id="@+id/laySoto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvMakanan"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal"
-        android:layout_marginBottom="8dp"
-        android:layout_marginHorizontal="10dp">
-
-        <TextView
-            android:id="@+id/tvSoto"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="Soto"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/inputJumlahSoto"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="0"
-            android:gravity="center"
-            android:inputType="number"/>
-
-        <TextView
-            android:id="@+id/tvHargaSoto"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:textSize="20sp"
-            android:text="Rp 8.000"
-            android:gravity="end"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layTimlo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/laySoto"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginBottom="8dp"
-        android:layout_marginHorizontal="10dp">
-
-        <TextView
-            android:id="@+id/tvTimlo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="Timlo"
-            android:textSize="20sp"/>
-
-        <EditText
-            android:id="@+id/inputJumlahTimlo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="0"
-            android:gravity="center"
-            android:inputType="number"/>
-
-        <TextView
-            android:id="@+id/tvHargaTimlo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="Rp 10.000"
-            android:textSize="20sp"
-            android:gravity="end"/>
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/tvMinuman"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Minuman"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:layout_marginVertical="10dp"
-        android:layout_marginHorizontal="15dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/layTimlo"/>
-
-    <LinearLayout
-        android:id="@+id/layEsTeh"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvMinuman"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal"
-        android:layout_marginBottom="8dp"
-        android:layout_marginHorizontal="10dp">
-
-        <TextView
-            android:id="@+id/tvEsTeh"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="Es Teh"
-            android:textSize="20sp"/>
-
-        <EditText
-            android:id="@+id/inputEsTeh"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="0"
-            android:gravity="center"
-            android:inputType="number"/>
-
-        <TextView
-            android:id="@+id/tvHargaEsTeh"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="Rp 3.000"
-            android:textSize="20sp"
-            android:gravity="end"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layEsJeruk"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/layEsTeh"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal"
-        android:layout_marginBottom="8dp"
-        android:layout_marginHorizontal="10dp">
-
-        <TextView
-            android:id="@+id/tvEsJeruk"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="Es Jeruk"
-            android:textSize="20sp"/>
-
-        <EditText
-            android:id="@+id/inputEsJeruk"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="0"
-            android:gravity="center"
-            android:inputType="number"/>
-
-        <TextView
-            android:id="@+id/tvHargaEsJeruk"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="Rp 4.000"
-            android:textSize="20sp"
-            android:gravity="end"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layTehPanas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/layEsJeruk"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal"
-        android:layout_marginBottom="8dp"
-        android:layout_marginHorizontal="10dp">
-
-        <TextView
-            android:id="@+id/TehPanas"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="Teh Panas"
-            android:textSize="20sp"/>
-
-        <EditText
-            android:id="@+id/inputTehPanas"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="0"
-            android:gravity="center"
-            android:inputType="number"/>
-
-        <TextView
-            android:id="@+id/tvHargaTehPanas"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="Rp 2.500"
-            android:textSize="20sp"
-            android:gravity="end"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layJerukPanas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/layTehPanas"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal"
-        android:layout_marginBottom="8dp"
-        android:layout_marginHorizontal="10dp">
-
-        <TextView
-            android:id="@+id/tvJerukPanas"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="Jeruk Panas"
-            android:textSize="20sp"/>
-
-        <EditText
-            android:id="@+id/inputJerukPanas"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="0"
-            android:gravity="center"
-            android:inputType="number"/>
-
-        <TextView
-            android:id="@+id/tvHargaJerukPanas"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="Rp 3.000"
-            android:textSize="20sp"
-            android:gravity="end"/>
-    </LinearLayout>
+        android:backgroundTint="#3C3C3C"/>
 
 </RelativeLayout>
