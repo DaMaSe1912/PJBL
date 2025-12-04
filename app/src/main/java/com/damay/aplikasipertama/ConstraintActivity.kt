@@ -1,27 +1,14 @@
 package com.damay.aplikasipertama
 
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
-import android.widget.TextView
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import java.text.DecimalFormat
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
 
 class ConstraintActivity : AppCompatActivity() {
 
-    // UI Components
-    private lateinit var etPreview: TextView
-    private lateinit var tvHistory: TextView
-
-    // Calculator state variables
-    private var currentInput = StringBuilder()
-    private var currentOperator = ""
-    private var previousValue = ""
-    private var isNewOperation = true
-    private var calculationHistory = mutableListOf<String>()
+    // Step 3.1: Declare variables for all views
+    private lateinit var etPreview: EditText
 
     // Number buttons
     private lateinit var btn0: Button
@@ -38,50 +25,38 @@ class ConstraintActivity : AppCompatActivity() {
     // Operation buttons
     private lateinit var btnC: Button
     private lateinit var btnDel: Button
-    private lateinit var btnBagi: Button
-    private lateinit var btnKali: Button
-    private lateinit var btnKurang: Button
     private lateinit var btnTambah: Button
+    private lateinit var btnKurang: Button
+    private lateinit var btnKali: Button
+    private lateinit var btnBagi: Button
     private lateinit var btnKoma: Button
     private lateinit var btnSaDeng: Button
 
+    // Step 3.2: Variables to store calculator data
+    private var currentInput = StringBuilder()
+    private var currentOperator = ""
+    private var firstOperand = 0.0
+    private var shouldResetInput = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Step 3.3: Set the layout
         setContentView(R.layout.activity_constraint)
 
+        // Step 3.4: Initialize all views
         initializeViews()
+
+        // Step 3.5: Set up button click listeners
         setupClickListeners()
-        updateDisplay()
     }
 
+    // Step 4: Initialize Views Method
     private fun initializeViews() {
+        // Initialize the display
         etPreview = findViewById(R.id.etPreview)
 
-        // Create history TextView programmatically
-        tvHistory = TextView(this).apply {
-            id = View.generateViewId()
-            layoutParams = androidx.constraintlayout.widget.ConstraintLayout.LayoutParams(
-                androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.MATCH_CONSTRAINT,
-                androidx.constraintlayout.widget.ConstraintLayout.LayoutParams.WRAP_CONTENT
-            ).apply {
-                setMargins(16, 32, 16, 8)
-                topToTop = R.id.main
-                startToStart = R.id.main
-                endToEnd = R.id.main
-                bottomToTop = R.id.etPreview
-            }
-            textSize = 14f
-            textAlignment = TextView.TEXT_ALIGNMENT_TEXT_END
-            setTextColor(resources.getColor(android.R.color.darker_gray, theme))
-            maxLines = 3
-            ellipsize = android.text.TextUtils.TruncateAt.END
-        }
-
-        // Add history TextView to layout
-        val mainLayout = findViewById<androidx.constraintlayout.widget.ConstraintLayout>(R.id.main)
-        mainLayout.addView(tvHistory)
-
-        // Initialize buttons
+        // Initialize number buttons
         btn0 = findViewById(R.id.btn0)
         btn1 = findViewById(R.id.btn1)
         btn2 = findViewById(R.id.btn2)
@@ -93,45 +68,50 @@ class ConstraintActivity : AppCompatActivity() {
         btn8 = findViewById(R.id.btn8)
         btn9 = findViewById(R.id.btn9)
 
+        // Initialize operation buttons
         btnC = findViewById(R.id.btnC)
         btnDel = findViewById(R.id.btnDel)
-        btnBagi = findViewById(R.id.btnBagi)
-        btnKali = findViewById(R.id.btnKali)
-        btnKurang = findViewById(R.id.btnKurang)
         btnTambah = findViewById(R.id.btnTambah)
+        btnKurang = findViewById(R.id.btnKurang)
+        btnKali = findViewById(R.id.btnKali)
+        btnBagi = findViewById(R.id.btnBagi)
         btnKoma = findViewById(R.id.btnKoma)
         btnSaDeng = findViewById(R.id.btnSaDeng)
     }
 
+    // Step 5: Setup Click Listeners
     private fun setupClickListeners() {
         // Number buttons
-        val numberButtons = listOf(btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9)
-        numberButtons.forEach { button ->
-            button.setOnClickListener {
-                onNumberClick(button.text.toString())
-            }
-        }
+        btn0.setOnClickListener { appendNumber("0") }
+        btn1.setOnClickListener { appendNumber("1") }
+        btn2.setOnClickListener { appendNumber("2") }
+        btn3.setOnClickListener { appendNumber("3") }
+        btn4.setOnClickListener { appendNumber("4") }
+        btn5.setOnClickListener { appendNumber("5") }
+        btn6.setOnClickListener { appendNumber("6") }
+        btn7.setOnClickListener { appendNumber("7") }
+        btn8.setOnClickListener { appendNumber("8") }
+        btn9.setOnClickListener { appendNumber("9") }
 
         // Operation buttons
-        btnTambah.setOnClickListener { onOperatorClick("+") }
-        btnKurang.setOnClickListener { onOperatorClick("-") }
-        btnKali.setOnClickListener { onOperatorClick("*") }
-        btnBagi.setOnClickListener { onOperatorClick("/") }
-        btnKoma.setOnClickListener { onDecimalClick() }
-
-        // Function buttons
-        btnC.setOnClickListener { onClearClick() }
-        btnDel.setOnClickListener { onDeleteClick() }
-        btnSaDeng.setOnClickListener { onEqualsClick() }
+        btnC.setOnClickListener { clearAll() }
+        btnDel.setOnClickListener { deleteLast() }
+        btnTambah.setOnClickListener { setOperator("+") }
+        btnKurang.setOnClickListener { setOperator("-") }
+        btnKali.setOnClickListener { setOperator("*") }
+        btnBagi.setOnClickListener { setOperator("/") }
+        btnKoma.setOnClickListener { appendDecimal() }
+        btnSaDeng.setOnClickListener { calculateResult() }
     }
 
-    private fun onNumberClick(number: String) {
-        if (isNewOperation) {
+    // Step 6: Number Input Function
+    private fun appendNumber(number: String) {
+        if (shouldResetInput) {
             currentInput.clear()
-            isNewOperation = false
+            shouldResetInput = false
         }
 
-        // Prevent leading zeros
+        // Prevent multiple leading zeros
         if (currentInput.toString() == "0") {
             currentInput.clear()
         }
@@ -140,205 +120,129 @@ class ConstraintActivity : AppCompatActivity() {
         updateDisplay()
     }
 
-    private fun onOperatorClick(operator: String) {
-        if (currentInput.isNotEmpty()) {
-            if (previousValue.isNotEmpty() && currentOperator.isNotEmpty()) {
-                // Calculate previous operation first
-                performCalculation()
-            }
-
-            previousValue = currentInput.toString()
-            currentOperator = operator
+    // Step 7: Decimal Point Function
+    private fun appendDecimal() {
+        if (shouldResetInput) {
             currentInput.clear()
-
-            // Update history display with the ongoing operation
-            updateHistoryDisplay("$previousValue $currentOperator")
-        } else if (previousValue.isNotEmpty()) {
-            // Allow changing the operator
-            currentOperator = operator
-            updateHistoryDisplay("$previousValue $currentOperator")
+            shouldResetInput = false
         }
 
-        updateDisplay()
-    }
-
-    private fun onDecimalClick() {
-        if (isNewOperation) {
-            currentInput.clear()
+        // If empty, start with "0."
+        if (currentInput.isEmpty()) {
             currentInput.append("0")
-            isNewOperation = false
         }
 
+        // Add decimal point only if there isn't one already
         if (!currentInput.contains(".")) {
-            if (currentInput.isEmpty()) {
-                currentInput.append("0")
-            }
             currentInput.append(".")
             updateDisplay()
         }
     }
 
-    private fun onClearClick() {
-        currentInput.clear()
-        previousValue = ""
-        currentOperator = ""
-        isNewOperation = true
-        updateDisplay()
-        tvHistory.text = ""
+    // Step 8: Operator Function
+    private fun setOperator(operator: String) {
+        if (currentInput.isNotEmpty()) {
+            // If we already have an operator, calculate the result first
+            if (currentOperator.isNotEmpty()) {
+                calculateResult()
+            }
+
+            // Store the first number and operator
+            firstOperand = currentInput.toString().toDouble()
+            currentOperator = operator
+            shouldResetInput = true
+        }
     }
 
-    private fun onDeleteClick() {
+    // Step 9: Calculation Function
+    private fun calculateResult() {
+        if (currentInput.isNotEmpty() && currentOperator.isNotEmpty()) {
+            val secondOperand = currentInput.toString().toDouble()
+            var result = 0.0
+
+            try {
+                // Perform the calculation based on the operator
+                result = when (currentOperator) {
+                    "+" -> firstOperand + secondOperand
+                    "-" -> firstOperand - secondOperand
+                    "*" -> firstOperand * secondOperand
+                    "/" -> {
+                        // Check for division by zero
+                        if (secondOperand == 0.0) {
+                            throw ArithmeticException("Division by zero")
+                        }
+                        firstOperand / secondOperand
+                    }
+                    else -> 0.0
+                }
+
+                // Format the result (remove .0 if it's a whole number)
+                val formattedResult = if (result % 1 == 0.0) {
+                    result.toInt().toString()
+                } else {
+                    result.toString()
+                }
+
+                // Display the result
+                currentInput.clear().append(formattedResult)
+                updateDisplay()
+
+            } catch (e: ArithmeticException) {
+                // Handle division by zero error
+                currentInput.clear().append("Error")
+                updateDisplay()
+            }
+
+            // Reset operator for next calculation
+            currentOperator = ""
+            shouldResetInput = true
+        }
+    }
+
+    // Step 10: Clear Function
+    private fun clearAll() {
+        currentInput.clear()
+        currentOperator = ""
+        firstOperand = 0.0
+        shouldResetInput = false
+        etPreview.text.clear()
+        etPreview.hint = "01234"
+    }
+
+    // Step 11: Delete Function
+    private fun deleteLast() {
         if (currentInput.isNotEmpty()) {
             currentInput.deleteCharAt(currentInput.length - 1)
             updateDisplay()
-        } else if (currentOperator.isNotEmpty()) {
-            // If deleting after an operator, revert to previous value
-            currentInput.append(previousValue)
-            previousValue = ""
-            currentOperator = ""
-            updateDisplay()
+        }
+
+        // If nothing left, show hint
+        if (currentInput.isEmpty()) {
+            etPreview.hint = "01234"
         }
     }
 
-    private fun onEqualsClick() {
-        if (previousValue.isNotEmpty() && currentOperator.isNotEmpty() && currentInput.isNotEmpty()) {
-            performCalculation()
-
-            // Add to history
-            addToHistory()
-
-            // Reset for next operation
-            isNewOperation = true
-            updateDisplay()
-        }
-    }
-
-    private fun performCalculation() {
-        try {
-            val firstNum = previousValue.toDouble()
-            val secondNum = currentInput.toString().toDouble()
-            var result = 0.0
-
-            when (currentOperator) {
-                "+" -> result = firstNum + secondNum
-                "-" -> result = firstNum - secondNum
-                "*" -> result = firstNum * secondNum
-                "/" -> {
-                    if (secondNum != 0.0) {
-                        result = firstNum / secondNum
-                    } else {
-                        currentInput.clear()
-                        currentInput.append("Error")
-                        updateDisplay()
-                        return
-                    }
-                }
-            }
-
-            // Format result to remove unnecessary decimals
-            val formattedResult = formatResult(result)
-
-            // Update history with full calculation
-            val historyEntry = "$previousValue $currentOperator $secondNum = $formattedResult"
-            updateHistoryDisplay(historyEntry, isFinal = true)
-
-            // Set result as current input for chain calculations
-            currentInput.clear()
-            currentInput.append(formattedResult)
-            previousValue = formattedResult
-
-        } catch (e: NumberFormatException) {
-            currentInput.clear()
-            currentInput.append("Error")
-        }
-    }
-
-    private fun formatResult(result: Double): String {
-        return if (result == result.toLong().toDouble()) {
-            // If it's a whole number, display without decimal
-            result.toLong().toString()
-        } else {
-            // Format to remove unnecessary trailing zeros
-            val df = DecimalFormat("#.########")
-            df.format(result)
-        }
-    }
-
-    private fun addToHistory() {
-        if (previousValue.isNotEmpty() && currentOperator.isNotEmpty() && currentInput.isNotEmpty()) {
-            val historyEntry = "$previousValue $currentOperator ${currentInput} = ${currentInput}"
-            calculationHistory.add(historyEntry)
-
-            // Keep only last 10 calculations in memory
-            if (calculationHistory.size > 10) {
-                calculationHistory.removeAt(0)
-            }
-        }
-    }
-
-    private fun updateHistoryDisplay(operation: String, isFinal: Boolean = false) {
-        if (isFinal) {
-            // For final calculations, show in history
-            tvHistory.text = operation
-        } else {
-            // For ongoing operations, show the current operation
-            tvHistory.text = operation
-        }
-    }
-
+    // Step 12: Update Display Function
     private fun updateDisplay() {
-        val displayText = if (currentInput.isEmpty()) {
-            if (previousValue.isNotEmpty() && currentOperator.isNotEmpty()) {
-                // Show previous value and operator when waiting for second number
-                "$previousValue $currentOperator"
-            } else {
-                "0"
-            }
-        } else {
-            // Format number with thousand separators
-            formatNumberWithCommas(currentInput.toString())
-        }
-
-        etPreview.text = displayText
+        etPreview.setText(currentInput.toString())
     }
 
-    private fun formatNumberWithCommas(number: String): String {
-        return try {
-            // Remove existing commas and parse
-            val cleanNumber = number.replace(",", "")
-
-            // Check if it contains decimal point
-            if (cleanNumber.contains(".")) {
-                val parts = cleanNumber.split(".")
-                val integerPart = parts[0].toLongOrNull()
-                val decimalPart = parts.getOrNull(1) ?: ""
-
-                if (integerPart != null) {
-                    val formattedInteger = DecimalFormat("#,###").format(integerPart)
-                    if (decimalPart.isNotEmpty()) {
-                        "$formattedInteger.$decimalPart"
-                    } else {
-                        formattedInteger
-                    }
-                } else {
-                    cleanNumber
-                }
-            } else {
-                // Whole number
-                val num = cleanNumber.toLongOrNull()
-                if (num != null) {
-                    DecimalFormat("#,###").format(num)
-                } else {
-                    cleanNumber
-                }
-            }
-        } catch (e: Exception) {
-            number
-        }
+    // Step 13: Save State (Optional - for screen rotation)
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString("currentInput", currentInput.toString())
+        outState.putString("currentOperator", currentOperator)
+        outState.putDouble("firstOperand", firstOperand)
+        outState.putBoolean("shouldResetInput", shouldResetInput)
     }
 
-    // Extension function to check if StringBuilder contains a string
-    private fun StringBuilder.contains(charSequence: CharSequence): Boolean {
-        return this.contains(charSequence)
+    // Step 14: Restore State (Optional - for screen rotation)
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        currentInput.clear().append(savedInstanceState.getString("currentInput", ""))
+        currentOperator = savedInstanceState.getString("currentOperator", "")
+        firstOperand = savedInstanceState.getDouble("firstOperand", 0.0)
+        shouldResetInput = savedInstanceState.getBoolean("shouldResetInput", false)
+        updateDisplay()
     }
 }

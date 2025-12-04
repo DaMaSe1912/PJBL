@@ -15,7 +15,9 @@
         app:layout_constraintEnd_toStartOf="@+id/btnDel"
         android:text="🔢Calculator"
         android:textSize="18sp"
-        android:textAlignment="center"/>
+        android:textColor="@color/text_primary"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <EditText
         android:id="@+id/etPreview"
