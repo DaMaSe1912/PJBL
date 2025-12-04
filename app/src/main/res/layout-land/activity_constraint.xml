@@ -28,8 +28,8 @@
         android:textAlignment="6"
         android:enabled="false"
         android:textSize="60sp"
-        android:background="@color/bg_main"
         android:textColorHint="@color/text_primary"
+        android:background="@color/bg_main"
         app:layout_constraintBottom_toTopOf="@+id/btnDel"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -42,7 +42,7 @@
         android:layout_marginVertical="5dp"
         android:backgroundTint="#FF0000"
         android:text="C"
-        android:textSize="30sp"
+        android:textSize="27sp"
         app:layout_constraintBottom_toTopOf="@+id/btn8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnDel"/>
@@ -50,7 +50,7 @@
     <Button
         android:id="@+id/btnDel"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         app:layout_constraintHorizontal_weight="0.5"
         app:layout_constraintEnd_toStartOf="@+id/btnBagi"
         app:layout_constraintBottom_toTopOf="@+id/btn9"
@@ -85,7 +85,7 @@
         android:layout_marginVertical="5dp"
         android:layout_marginHorizontal="10dp"
         android:text="*"
-        android:textSize="30sp"
+        android:textSize="27sp"
         android:backgroundTint="#53AF4C"/>
 
     <Button
@@ -99,7 +99,7 @@
         android:layout_marginHorizontal="10dp"
         android:layout_marginVertical="5dp"
         android:text="7"
-        android:textSize="30sp"/>
+        android:textSize="27sp"/>
 
     <Button
         android:id="@+id/btn9"
@@ -111,7 +111,7 @@
         app:layout_constraintStart_toEndOf="@+id/btn8"
         android:layout_marginHorizontal="10dp"
         android:layout_marginVertical="5dp"
-        android:textSize="30sp"
+        android:textSize="27sp"
         android:text="9"/>
 
     <Button
@@ -125,7 +125,7 @@
         android:layout_marginHorizontal="10dp"
         android:layout_marginVertical="5dp"
         android:text="8"
-        android:textSize="30sp"/>
+        android:textSize="27sp"/>
 
     <Button
         android:id="@+id/btn4"
@@ -138,7 +138,7 @@
         android:layout_marginHorizontal="10dp"
         android:layout_marginVertical="5dp"
         android:text="4"
-        android:textSize="30sp"/>
+        android:textSize="27sp"/>
 
     <Button
         android:id="@+id/btnKurang"
@@ -150,7 +150,7 @@
         app:layout_constraintStart_toEndOf="@+id/btn6"
         android:layout_marginHorizontal="10dp"
         android:layout_marginVertical="5dp"
-        android:textSize="30sp"
+        android:textSize="27sp"
         android:text="-"
         android:backgroundTint="#53AF4C"/>
 
@@ -165,7 +165,7 @@
         android:layout_marginHorizontal="10dp"
         android:layout_marginVertical="5dp"
         android:text="6"
-        android:textSize="30sp"/>
+        android:textSize="27sp"/>
 
     <Button
         android:id="@+id/btn5"
@@ -177,7 +177,7 @@
         app:layout_constraintEnd_toStartOf="@+id/btn6"
         android:layout_marginHorizontal="10dp"
         android:layout_marginVertical="5dp"
-        android:textSize="30sp"
+        android:textSize="27sp"
         android:text="5"/>
 
     <Button
@@ -190,7 +190,7 @@
         app:layout_constraintStart_toEndOf="@+id/btn3"
         android:layout_marginHorizontal="10dp"
         android:layout_marginVertical="5dp"
-        android:textSize="30sp"
+        android:textSize="27sp"
         android:text="+"
         android:backgroundTint="#53AF4C"/>
 
@@ -204,7 +204,7 @@
         app:layout_constraintStart_toEndOf="@+id/btn2"
         android:layout_marginHorizontal="10dp"
         android:layout_marginVertical="5dp"
-        android:textSize="30sp"
+        android:textSize="27sp"
         android:text="3"/>
 
     <Button
@@ -217,7 +217,7 @@
         app:layout_constraintStart_toEndOf="@+id/btn1"
         android:layout_marginHorizontal="10dp"
         android:layout_marginVertical="5dp"
-        android:textSize="30sp"
+        android:textSize="27sp"
         android:text="2"/>
 
     <Button
@@ -230,7 +230,7 @@
         app:layout_constraintEnd_toStartOf="@+id/btn2"
         android:layout_marginHorizontal="10dp"
         android:layout_marginVertical="5dp"
-        android:textSize="30sp"
+        android:textSize="27sp"
         android:text="1"/>
 
     <Button
@@ -243,7 +243,7 @@
         app:layout_constraintStart_toEndOf="@+id/btnKoma"
         android:layout_marginHorizontal="10dp"
         android:layout_marginVertical="5dp"
-        android:textSize="30sp"
+        android:textSize="27sp"
         android:text="="
         android:backgroundTint="#3E54DE"/>
 
@@ -257,7 +257,7 @@
         app:layout_constraintStart_toEndOf="@+id/btn0"
         android:layout_marginHorizontal="10dp"
         android:layout_marginVertical="5dp"
-        android:textSize="30sp"
+        android:textSize="27sp"
         android:text=","
         android:backgroundTint="#53AF4C"/>
 
@@ -271,7 +271,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginHorizontal="10dp"
         android:layout_marginVertical="5dp"
-        android:textSize="30sp"
+        android:textSize="27sp"
         android:text="0"/>
 
 

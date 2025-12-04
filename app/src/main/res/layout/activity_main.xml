@@ -15,14 +15,15 @@
         android:layout_height="wrap_content">
 
         <!-- Logo -->
-        <ImageView
+
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/gambarfoodstand"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/profile"
+            android:src="@drawable/logoapp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <TextView
             android:id="@+id/tvTitle"
